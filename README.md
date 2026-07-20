@@ -21,7 +21,7 @@ Protocol reverse engineered from BLE HCI snoop logs.
 
 ## Setup
 
-1. Settings → Devices & services → **Add Integration** → search for "SuteFoto LED"
+1. Settings → Devices & services → **Add Integration** → search for "SuteFoto T40C RGB BLE"
 2. If discovered, select your light from the list; otherwise choose
    **"Enter MAC address manually…"** and type it in (find it with a BLE scanner
    app such as nRF Connect — look for a device named like `ST40CRGB-XXXXXX`)
