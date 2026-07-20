@@ -1,6 +1,6 @@
-# SuteFoto LED Light — Home Assistant Integration
+# SuteFoto T40C Light BLE — Home Assistant Integration
 
-Custom Home Assistant integration for the **SuteFoto T40C RGB** video light
+Custom Home Assistant integration for the **SuteFoto T40C Light BLE** professional light
 (the one controlled by the [SS LED](https://play.google.com/store/apps/details?id=com.zzcyi.sutudengjv) app), connected directly over Bluetooth LE. 
 Protocol reverse engineered from BLE HCI snoop logs.
 
