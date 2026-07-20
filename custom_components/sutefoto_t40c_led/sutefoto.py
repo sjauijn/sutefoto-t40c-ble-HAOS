@@ -158,10 +158,14 @@ class SuteFotoInstance:
         if self.brightness_pct > 0:
             self._last_brightness_pct = self.brightness_pct
         self.is_on = False
-        if self.mode == MODE_FX:
+        was_fx = self.mode == MODE_FX
+        if was_fx:
             self.fx_effect = FX_EFFECT_OFF
             self.mode = MODE_HSI
         await self._send_current_mode()
+        if was_fx:
+            await asyncio.sleep(0.5)
+            await self._send_current_mode()
 
     async def async_set_brightness_pct(self, brightness_pct: int) -> None:
         self.brightness_pct = max(0, min(100, brightness_pct))
