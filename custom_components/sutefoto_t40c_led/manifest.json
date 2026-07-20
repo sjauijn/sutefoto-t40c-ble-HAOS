@@ -11,7 +11,7 @@
   "version": "1.0.0",
   "bluetooth": [
     {
-      "local_name": "T40C*"
+      "local_name": "ST40*"
     }
   ]
 }

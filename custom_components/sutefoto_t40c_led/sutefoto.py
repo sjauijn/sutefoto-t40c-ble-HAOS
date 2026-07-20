@@ -54,7 +54,7 @@ class SuteFotoInstance:
         self.cct_kelvin: int = 5600
         self.gm_compensation: int = 0
 
-        self.rgbcw_red: int = 100
+        self.rgbcw_red: int = 0
         self.rgbcw_green: int = 0
         self.rgbcw_blue: int = 0
         self.rgbcw_less_warm: int = 0
@@ -152,6 +152,9 @@ class SuteFotoInstance:
         if self.brightness_pct > 0:
             self._last_brightness_pct = self.brightness_pct
         self.is_on = False
+        if self.mode == MODE_FX:
+            self.fx_effect = FX_EFFECT_OFF
+            self.mode = MODE_HSI
         await self._send_current_mode()
 
     async def async_set_brightness_pct(self, brightness_pct: int) -> None:
@@ -191,6 +194,8 @@ class SuteFotoInstance:
             self.saturation = saturation
         if self.mode == MODE_RGBCW:
             self._reset_rgbcw()
+        if self.mode == MODE_FX:
+            self.fx_effect = FX_EFFECT_OFF
         self.mode = MODE_HSI
         if send:
             await self._send_current_mode()
@@ -207,6 +212,8 @@ class SuteFotoInstance:
             self.gm_compensation = gm_compensation
         if self.mode == MODE_RGBCW:
             self._reset_rgbcw()
+        if self.mode == MODE_FX:
+            self.fx_effect = FX_EFFECT_OFF
         self.mode = MODE_CCT
         if send:
             await self._send_current_mode()
@@ -229,6 +236,8 @@ class SuteFotoInstance:
             self.rgbcw_less_warm = less_warm
         if more_warm is not None:
             self.rgbcw_more_warm = more_warm
+        if self.mode == MODE_FX:
+            self.fx_effect = FX_EFFECT_OFF
         self.mode = MODE_RGBCW
         await self._send_current_mode()
 
@@ -241,6 +250,7 @@ class SuteFotoInstance:
         if effect_id == FX_EFFECT_OFF:
             self._push_update()
             return
+        was_off = self.fx_effect == FX_EFFECT_OFF
         if effect_id is not None:
             self.fx_effect = effect_id
         if frequency is not None:
@@ -249,3 +259,6 @@ class SuteFotoInstance:
             self.brightness_pct = intensity
         self.mode = MODE_FX
         await self._send_current_mode()
+        if was_off:
+            await asyncio.sleep(0.5)
+            await self._send_current_mode()
