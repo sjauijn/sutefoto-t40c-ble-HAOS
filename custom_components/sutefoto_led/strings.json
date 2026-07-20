@@ -1,0 +1,53 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Add SuteFoto LED",
+        "description": "Select a discovered light or enter its Bluetooth MAC address manually (found via a BLE scanner app, e.g. nRF Connect).",
+        "data": {
+          "mac": "Light"
+        }
+      },
+      "bluetooth_confirm": {
+        "title": "Discovered SuteFoto LED",
+        "description": "Do you want to set up {name}?"
+      }
+    },
+    "abort": {
+      "already_configured": "This light is already configured"
+    }
+  },
+  "entity": {
+    "select": {
+      "mode": {
+        "name": "Mode"
+      },
+      "fx_effect": {
+        "name": "FX Effect"
+      }
+    },
+    "number": {
+      "gm_compensation": {
+        "name": "Green/Magenta Compensation"
+      },
+      "rgbcw_red": {
+        "name": "RGBCW Red"
+      },
+      "rgbcw_green": {
+        "name": "RGBCW Green"
+      },
+      "rgbcw_blue": {
+        "name": "RGBCW Blue"
+      },
+      "rgbcw_less_warm": {
+        "name": "RGBCW Less Warm"
+      },
+      "rgbcw_more_warm": {
+        "name": "RGBCW More Warm"
+      },
+      "fx_frequency": {
+        "name": "FX Frequency"
+      }
+    }
+  }
+}

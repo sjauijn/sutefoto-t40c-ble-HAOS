@@ -1,0 +1,53 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Добавить SuteFoto LED",
+        "description": "Выберите обнаруженный свет или введите его Bluetooth MAC-адрес вручную (можно найти через приложение-сканер, например nRF Connect).",
+        "data": {
+          "mac": "Устройство"
+        }
+      },
+      "bluetooth_confirm": {
+        "title": "Обнаружен SuteFoto LED",
+        "description": "Настроить {name}?"
+      }
+    },
+    "abort": {
+      "already_configured": "Этот свет уже настроен"
+    }
+  },
+  "entity": {
+    "select": {
+      "mode": {
+        "name": "Режим"
+      },
+      "fx_effect": {
+        "name": "FX эффект"
+      }
+    },
+    "number": {
+      "gm_compensation": {
+        "name": "Компенсация Green/Magenta"
+      },
+      "rgbcw_red": {
+        "name": "RGBCW Красный"
+      },
+      "rgbcw_green": {
+        "name": "RGBCW Зелёный"
+      },
+      "rgbcw_blue": {
+        "name": "RGBCW Синий"
+      },
+      "rgbcw_less_warm": {
+        "name": "RGBCW Less Warm"
+      },
+      "rgbcw_more_warm": {
+        "name": "RGBCW More Warm"
+      },
+      "fx_frequency": {
+        "name": "FX Частота"
+      }
+    }
+  }
+}
