@@ -1,23 +1,8 @@
 # SuteFoto LED Light — Home Assistant Integration
 
-Custom Home Assistant integration for the **SuteFoto T40X/T40C RGB** video light
-(the one controlled by the "SS LED" app), connected directly over Bluetooth LE —
-no cloud, no hub required. Protocol reverse engineered from BLE HCI snoop logs.
-
-## Important: this light has no state feedback
-
-The light's BLE protocol is write-only — it never reports its actual on/off
-state, brightness, or color back to Home Assistant. This is a hardware/firmware
-limitation, not a bug in this integration (the same is true of most cheap BLE
-LED controllers). Entities are therefore marked as **assumed state**: Home
-Assistant shows whatever it last *told* the light, not what the light is
-*actually* doing. If the light is also controlled from the SS LED app, or loses
-power, Home Assistant's view of it can get out of sync until you send a new
-command.
-
-Also note: the light's Bluetooth radio advertises whenever it has mains power,
-independent of whether its LEDs are switched on. Seeing it in Home Assistant's
-"discovered" list does not mean the light is currently lit.
+Custom Home Assistant integration for the **SuteFoto T40C RGB** video light
+(the one controlled by the [SS LED](https://play.google.com/store/apps/details?id=com.zzcyi.sutudengjv) app), connected directly over Bluetooth LE. 
+Protocol reverse engineered from BLE HCI snoop logs.
 
 ## Features
 
@@ -49,7 +34,7 @@ independent of whether its LEDs are switched on. Seeing it in Home Assistant's
 - Home Assistant instance with Bluetooth support (built-in adapter or a
   [Bluetooth proxy](https://esphome.io/components/bluetooth_proxy.html)) within
   range of the light
-- The light must not be actively connected to the SS LED phone app at setup
+- The light must not be actively connected to the [SS LED](https://play.google.com/store/apps/details?id=com.zzcyi.sutudengjv) phone app at setup
   time or while Home Assistant is controlling it (BLE only allows one active
   connection)
 
