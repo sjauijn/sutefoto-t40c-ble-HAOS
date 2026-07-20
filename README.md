@@ -40,5 +40,5 @@ Protocol reverse engineered from BLE HCI snoop logs.
 
 ## Disclaimer
 
-This is an unofficial, community-reverse-engineered integration and is not
+This is an unofficial, reverse-engineered integration and is not
 affiliated with or endorsed by SuteFoto.
