@@ -1,0 +1,20 @@
+{
+  "domain": "sutefoto_led",
+  "name": "SuteFoto LED Light",
+  "codeowners": [],
+  "config_flow": true,
+  "dependencies": ["bluetooth_adapters"],
+  "documentation": "https://github.com/yourusername/sutefoto_led",
+  "integration_type": "device",
+  "iot_class": "local_push",
+  "requirements": ["bleak-retry-connector>=3.0.0"],
+  "version": "1.1.0",
+  "bluetooth": [
+    {
+      "local_name": "ST40*"
+    },
+    {
+      "local_name": "SuteFoto*"
+    }
+  ]
+}
